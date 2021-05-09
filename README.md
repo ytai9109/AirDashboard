@@ -179,6 +179,7 @@ There are two user controls above the plot:
 - order abbreivated months by 
 
 
+---
 ## Map of Airports
 
 <img src="images/image6.JPG?raw=true" width="80%">
