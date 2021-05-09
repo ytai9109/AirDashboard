@@ -117,13 +117,15 @@ There are two user controls above the plot:
 - Select Month(s) to Display: Allows selection of a single month.
 
 **Data Wrangling:**
-For bar chart:
+
+**For bar chart:**
 - add US States column
 - group by year, then month, then airport
 - for each group, calculate the counts for each delay reason
 - calculate delayed reason percentage out of all delay counts for each delay reason
 - turn wide data format into long data format
-For pie chart:
+
+**For pie chart:**
 - same as data used in bar chart, except change column element name so that it's easier for plotly
 
 **Technical Details:**
