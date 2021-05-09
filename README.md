@@ -59,11 +59,13 @@ On the left hand side of the dashboard, I created a pop-out side bar that can be
 ## Total Delayed Flights
 
 **Goal:** 
+
 The aim of this plot is to display the total number of arrival and delayed flights, as well as the percentage of delayed flights out of all arrivial flights, per month from years 2003 to 2021 (where data is available). For each month, the arrival and delay counts are a sum of all the airports and airlines in the United States. This way, we can gain a quick visualization of which months the air traffic is the busiest and whihc months the air traffic is the most idle. We can choose to display either the counts, or the natural log of the counts, or the counts that have been demeaned. Uses 'dat1' dataset.
 
 Below the plot, there are two tabs that you can expand. One being "Add Regression" and the other being "Predicting Data". Expanding the "Add Regression" tab you will see controls where you can add a fitted line to the plot. The user can choose between what types of fitted lines they would like to add. Expanding the "Predicting Data" tab, we can use the lm() and predict() to predict values several months ahead of the data currently selected. Instructions to use this function are provided in the dashboard. To ensure the validity of the predictions, user must select a sequential number of years such as 2018, 2019, 2020 in order to predict data for year 2021. Selecting random years such as 2005, 2013, 2015 will not yield any sound predictions, even though the functions will still try to fit the data. 
 
 **Usage:**
+
 In the box located above the plot, there are four user controls:
 - Select Plot Type: Switch between line plot or bar plot, dataset loaded into both plots are the same, just different visualization methods
 - Select Year: Allows multiple year to be displayed on the plot, selecting a year will load all the months in that year into the plot (where data is available)
@@ -95,15 +97,20 @@ In the box located above the plot, there are four user controls:
 <img src="images/image3.JPG?raw=true" width="80%">
 
 **Goal:** 
+
 There are two types of plots the user can select, bar chart or pie chart. The data loaded into both plots are essentially the same, with minor differences in the naming conventions of the delay causes. For a given airport, and a given year and month, we can display the number of delays broken up into different delay causes. There are seven reasons for delay: carrier, weather, National Airspace System (NAS), Security, Late Aircraft, Canceled, and Diverted. We can visualize these by either the choosing the counts or as a percentage of all delay reasons. Bar chart is built using ggplot2 and ggplotly, it uses the 'dat2' dataset. Pie chart is built purely in plotly because interactive pie charts were not supported in ggplotly, it uses the 'dat2_pie' dataset. 
 
 **Usage:**
-For bar chart:
+
+**For bar chart:**
+
 There are three user controls above the plot:
 - Select an Airport: Allows selection of a single airport.
 - Select Month(s) to Display: Allows selection of either a single month or multiple months. If multiple months are selected, months are grouped in the bar chart and will be displayed side-by-side for each delay cause. This is a good means of comparing delay causes for different months. 
-- Select Data to Display: Displays either by count or by percentage of all delay causes. Percentage is calculated by (<count of a particular delay cause> / <sum of all counts of delay causes>).
-For pie chart:
+- Select Data to Display: Displays either by count or by percentage of all delay causes. Percentage is calculated by (count of a particular delay cause / sum of all counts of delay causes).
+
+**For pie chart:**
+
 There are two user controls above the plot:
 - Select an Airport: Allows selection of a single airport.
 - Select Month(s) to Display: Allows selection of a single month.
@@ -122,17 +129,20 @@ For pie chart:
 - pie chart built using plotly, plotly options uses lists inside lists, possibly carried over from python conventions
 - Custom hover info when mouse is hovering over plots, this uses HTML format from the htmltools library
 
+
 ---
 ## Delays by Type
 
 <img src="images/image4.JPG?raw=true" width="80%">
 
 **Goal:** 
+
 The aim is to visualize how much impact is caused by each delay type to all the flights across the States using a scatter plot. Spatial information such as US regions, as well as the traffic size of the airport are maintained in this plot. For a given year and month, and for a given delay cause, the plot displays on the y-axes, the percentage of total delayed flights (calculated by delayed flight count / arrival flight count), and on the x-axes, the likelihood a delay reason is causing the delay (calculated by number of counts for that delay cause / counts for all delays). Each dot represents an airport. It is colored by US region and is sized by the number of arrival flights for that airport within the chosen time period. Uses 'dat3' dataset.
 
 For example, we can see that in 2020/Apr, the scatter of the Canceled flight delays are pervasive through all US regions, possibly due to the onset of COVID, compared to the scatter in 2020/Feb. 
 
 **Usage:**
+
 There are two user controls above the plot:
 - Select Month(s) to Display: Allows selection of a single month.
 - Select Delay Cause: User can choose to visualize the delays throughout all US airports for a specific delay cause. 
@@ -150,9 +160,11 @@ Hovering over each scatter point will display the information related to that po
 <img src="images/image5.JPG?raw=true" width="80%">
 
 **Goal:** 
+
 The aim is to display the delay percentage statistics of each airline carrier from June 2013 to January 2021 using a box and whiskers plot. The box and whiskers is plotted out of delay percentages in each month for a specific airline carrier. The delay percentage is calculated from (delay count / arrival count) for a given month. Using the box and whiskers plot, we can visualize the 25th and 75th percentile, median, and any outliers of the delay percentage of each carrier. There is also an option to display individual data points to generate the box plot. This is implemented using the geom_jitter() layer. Uses 'dat4' dataset. 
 
 **Usage:**
+
 There are two user controls above the plot:
 - Select Airlines: Allows multiple selection of airline carriers to display on the plot. Recommended to have less than 10 selected. Color palette used in this plot supports up to 12 carriers simulataneously. 
 - Visualize Indiv. Data Points?: Adds individual data points as a layer on top of the box and whiskers plot. This allows a simple visualization of where all the data points are located on the axes. Hover over each data point to see details. 
@@ -169,9 +181,11 @@ There are two user controls above the plot:
 <img src="images/image6.JPG?raw=true" width="80%">
 
 **Goal:** 
+
 This is a simple map that contains markers of each US airport in the dataset. Upon hovering the mouse over the marker, the popup label displays the name of the airport. Clicking on the marker will display a popup showing information including airport name, number of arrivals, number of delays, percent of delays for a specific year. User can choose to display information for a specific year. This map is implemented using Leaflet. Map layer from Stadia with free API access. 
 
 **Usage:**
+
 There is a one control above the plot:
 - Select a Year: Dropdown menu allows user to select a year from 2004 to 2020. Selecting this will change the labels that pop up if the blue point is clicked. I have omitted years 2003 and 2021 because those years do not contain data for every month in the year. 
 
@@ -182,11 +196,13 @@ There is a one control above the plot:
 - using airport IATA code, join longitude and latitude data from "airdat" into this dataset, this is done using left_join()
 
 
-
-
+---
 ## Raw Data
+
 **Goal:** 
+
 Displays the dataset used to visualize the plots.
 
 **Usage:**
+
 At the top of the data table, there is a selector that allows the user to select which dataset to display. 
