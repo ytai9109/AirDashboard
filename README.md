@@ -4,7 +4,8 @@
 **Creator: Yang Tai**
 **Group of 1 person.**
 
-**Link to Dashboard:** [AirDashboard](https://ytai9109.shinyapps.io/AirDashboard/)
+**Link to Dashboard:** <a href="https://ytai9109.shinyapps.io/AirDashboard/" target="_blank">AirDashboard</a>
+
 
 This readme explains how the US Flight Delay Dashboard works.
 
