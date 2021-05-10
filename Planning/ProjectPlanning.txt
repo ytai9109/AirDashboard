@@ -1,0 +1,91 @@
+Goal: Make a Shiny app
+Needs to:
+	- wrangle data and display in friendly format
+	- predict data
+	- user friendly UI
+	- make it look pretty
+	
+Need to hand in:
+- live link to shinyapp
+- link to video explaining my app
+- project readme detailing the app
+
+Raw data:
+https://www.bts.dot.gov/topics/airlines-and-airports/quick-links-popular-air-carrier-statistics
+https://www.transtats.bts.gov/OT_Delay/OT_DelayCause1.asp
+
+Travel throughput 2019~2021
+https://www.tsa.gov/coronavirus/passenger-throughput
+
+
+arr_flights 			-- total count of flights
+arr_del15 				-- total count of delays
+- it looks like count numbers need to be rounded to whole numbers
+carrier_ct 				-- count of delays from air carrier
+weather_ct 				-- count of delays from weather
+nas_ct 					-- count of delays from national aviation system
+security_ct 			-- count of delays from security
+late_aircraft_ct 		-- count of delays from late arriving aircraft
+arr_cancelled 			-- count of cancelled flights
+arr_diverted 			-- count of diverted flights
+### which means ontime count is arr_del15 + (arr_cancelled + arr_diverted)
+arr_delay 				-- number of mins flights are delayed
+carrier_delay 			-- number of mins delayed caused by air carrier
+weather_delay 			-- number of mins delayed caused by weather
+nas_delay 				-- number of mins delayed caused by national aviation system
+security_delay 			-- number of mins delayed caused by security
+late_aircraft_delay 	-- number of mins delayed caused by late arriving aircraft
+
+
+
+Shiny dashboard:
+https://rstudio.github.io/shinydashboard/structure.html
+
+Some data display ideas:
+- bar plot showing percent delayed in a year
+	- select which years to show
+	- select whether to display 'arrival counts', 'delay counts', 'percent delayed'
+	- can use prediction to predict delayed flights in the future
+	- need to look into prediction using python
+	- implement natural log
+	
+- number of delays for an airport at a given time - grouped by causes
+	- bar chart of delay causes for a given time 
+	
+- scatter plot (of a year) showing percentage of delay flights vs likelihood of a cause of delay, each dot size is by total count of flights
+https://www.mit.edu/~amidi/teaching/data-science-tools/tutorial/data-visualization-with-r/
+	- 
+
+- box plot of airline delay from years 2004 - 2020
+	- use total delay count 
+	- can switch to delay percent out of all arriving flights
+	- show mean, 25%, 75% percentiles
+	- display standard deviation
+	
+- map displaying where the airports are - hover and show statistics
+	- need small circle blue markers
+	- need marker labels that display on mouse hover 
+
+- display raw data table
+	- select box to choose which data to display
+	
+	
+5 min video:
+- my name, group of 1
+- what I made
+- data from: US bureau of transportion
+- motivation: detailed visualization of flight delays
+- libraries used:
+	- shiny app
+	- shinydashboard instead of flexdashboard, more flexibility, adheres to shiny coding conventions
+	- tidyverse: dplyr, ggplot, stringr
+	- plotly: make pie chart
+	- leaflet: make map
+	- htmltools, rcolorbrewer
+- total flights delayed
+- delay by cause
+- delay by airport
+- delay by year
+- map 
+- raw data
+- thank you
