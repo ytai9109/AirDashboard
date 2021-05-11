@@ -207,7 +207,7 @@ There is a one control above the plot:
 
 **Goal:** 
 
-Displays the dataset used to visualize the plots.
+Displays the dataset used to visualize the plots. Does not have any specific usage except to provide user with some reference. 
 
 **Usage:**
 
